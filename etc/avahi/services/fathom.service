@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+ <name replace-wildcards="yes">Fathom-Bismark JSON-RPC on %h</name>
+  <service>
+   <type>_jsonrpc._tcp</type>
+   <txt-record>path=/cgi-bin/luci/fathom</txt-record>
+   <port>80</port>
+  </service>
+</service-group>

@@ -40,7 +40,7 @@ endef
 
 define Package/fathom_rpc/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) ./files/usr/bin/bismark-command $(1)/usr/bin
+	$(CP) ./files/usr/bin/bismark-command $(1)/usr/bin/bismark-command
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/bismark
 	$(CP) ./files/usr/lib/lua/luci/bismark.lua $(1)/usr/lib/lua/luci/bismark.lua
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/fathom_rpc

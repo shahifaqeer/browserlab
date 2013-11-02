@@ -1,0 +1,13 @@
+#!/bin/ash
+#script called with "command", "file" argument
+#where "command" is a background process and
+#"file" is the temp file we store the output in
+
+#returns the PID using echo $!
+
+#author: sgrover@gatech.edu
+#9/5/2013
+
+$1 > $2 &
+
+echo $!
