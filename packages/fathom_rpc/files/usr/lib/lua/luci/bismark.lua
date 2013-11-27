@@ -14,7 +14,7 @@ You may obtain a copy of the License at
 
 --[[
 bismark.active module for fathom rpc
-Authors: saru sgrover@gatech.edu
+Authors: sgrover@gatech.edu
 last-edit: 9/5/2013
 ]]--
 
@@ -149,6 +149,19 @@ function active.interface(dev)
 end
 
 
+function active.tcpdump(...)
+    -- execute tcpdump on router with args as provided
+    -- TODO filter tcpdump only for particular flow (srcip, dstip, sport, dport, proto) ?
+    -- TODO these arguments should be compulsory: output file, interface
+    
+    local cmd='tcpdump'
+    for i,v in ipairs(arg) do
+        cmd=cmd.." "..tostring(v)
+    end
+    local tcpdumpPID = luci.util.exec(cmd)
+    SOS(tcpdumpPID, "tcpdump PID = ")
+    return tcpdumpPID
+end
 --[[
     BANDWIDTH TESTS
 ]]--
