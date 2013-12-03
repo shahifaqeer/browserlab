@@ -158,10 +158,17 @@ function active.tcpdump(...)
     for i,v in ipairs(arg) do
         cmd=cmd.." "..tostring(v)
     end
+    cmd=cmd.." -w tcpdump.pcap"
     local tcpdumpPID = luci.util.exec(cmd)
     SOS(tcpdumpPID, "tcpdump PID = ")
     return tcpdumpPID
 end
+
+function active.stoptcpdump(tcpdumpPID)
+    luci.util.exec("kill "..tcpdumpPID)
+    -- TODO transfer dump to server now
+end
+
 --[[
     BANDWIDTH TESTS
 ]]--
