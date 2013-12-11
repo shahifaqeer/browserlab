@@ -32,14 +32,14 @@ define Package/shaperprobe/description
 endef
 
 define Build/Compile
-  $(MAKE) -C $(PKG_BUILD_DIR)/shaperprobe/linux
-  $(MAKE) -C $(PKG_BUILD_DIR)/shaperprobeserver
+  $(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)" -C $(PKG_BUILD_DIR)/shaperprobe/linux clean $(PKG_NAME)
+  $(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)" -C $(PKG_BUILD_DIR)/shaperprobeserver clean $(PKG_NAME)
 endef
 
 define Package/shaperprobe/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobe/linux/prober $(1)/usr/bin/shaperprobe
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobeserver/shaperprobeserver $(1)/usr/bin/shaperprobeserver
+  $(INSTALL_DIR) $(1)/usr/bin
+  $(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobe/linux/prober $(1)/usr/bin/shaperprobe
+  $(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobeserver/shaperprobeserver $(1)/usr/bin/shaperprobeserver
 endef
 
 $(eval $(call BuildPackage,shaperprobe))
