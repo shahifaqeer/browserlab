@@ -21,25 +21,25 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/shaperprobe
-  SECTION:=net
-  CATEGORY:=Network
-  TITLE:=Bandwidth estimation tool
-  URL:=http://www.measurementlab.net/tools/shaperprobe
+	SECTION:=net
+	CATEGORY:=Network
+	TITLE:=Bandwidth estimation tool
+	URL:=http://www.measurementlab.net/tools/shaperprobe
 endef
 
 define Package/shaperprobe/description
-  ShaperProbe based bandwidth estimation tool server and client.
+	ShaperProbe based bandwidth estimation tool server and client.
 endef
 
 define Build/Compile
-  $(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)" -C $(PKG_BUILD_DIR)/shaperprobe/linux clean $(PKG_NAME)
-  $(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)" -C $(PKG_BUILD_DIR)/shaperprobeserver clean $(PKG_NAME)
+	$(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)" -C $(PKG_BUILD_DIR)/shaperprobe/linux clean $(PKG_NAME)
+	$(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)" -C $(PKG_BUILD_DIR)/shaperprobeserver clean $(PKG_NAME)
 endef
 
 define Package/shaperprobe/install
-  $(INSTALL_DIR) $(1)/usr/bin
-  $(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobe/linux/prober $(1)/usr/bin/shaperprobe
-  $(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobeserver/shaperprobeserver $(1)/usr/bin/shaperprobeserver
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobe/linux/prober $(1)/usr/bin/shaperprobe
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobeserver/shaperprobeserver $(1)/usr/bin/shaperprobeserver
 endef
 
 $(eval $(call BuildPackage,shaperprobe))
