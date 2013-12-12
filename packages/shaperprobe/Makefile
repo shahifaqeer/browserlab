@@ -32,8 +32,8 @@ define Package/shaperprobe/description
 endef
 
 define Build/Compile
-	$(MAKE) CC="$(TARGET_CC)" CFLAGS="-c -Wall -Os -fno-strict-aliasing -DOSX" LDFLAGS="-lm" -C $(PKG_BUILD_DIR)/shaperprobe/linux all
-	$(MAKE) CC="$(TARGET_CC)" CFLAGS="-c -Wall -Os -fno-strict-aliasing -DOSX" LDFLAGS="-lm" -C $(PKG_BUILD_DIR)/shaperprobeserver all
+	$(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS) -DOSX" LDFLAGS="-lm" -C $(PKG_BUILD_DIR)/shaperprobe/linux all
+	$(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS) -DOSX" LDFLAGS="-lm" -C $(PKG_BUILD_DIR)/shaperprobeserver all
 endef
 
 define Package/shaperprobe/install
