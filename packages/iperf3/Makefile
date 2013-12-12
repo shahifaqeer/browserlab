@@ -31,6 +31,14 @@ define Package/iperf3/description
 	UDP and TCP bandwidth measurement tool.
 endef
 
+define Build/Configure
+  $(call Build/Configure/Default,--disable-shared --disable-static)
+endef
+
+define Build/Configure
+	--disable-shared
+ended
+
 define Package/iperf3/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/iperf3 $(1)/usr/bin/iperf3
