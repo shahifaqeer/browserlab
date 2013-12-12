@@ -34,5 +34,6 @@ endef
 define Package/iperf3/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/iperf3 $(1)/usr/bin/iperf3
+endef
 
 $(eval $(call BuildPackage,iperf3))
