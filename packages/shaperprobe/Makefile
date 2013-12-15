@@ -7,7 +7,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=shaperprobe
+PKG_NAME:=udpprobe
 PKG_VERSION:=2013-12-11
 
 PKG_SOURCE_PROTO:=git
@@ -20,14 +20,14 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/shaperprobe
+define Package/udpprobe
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=Bandwidth estimation tool
 	URL:=http://www.measurementlab.net/tools/shaperprobe
 endef
 
-define Package/shaperprobe/description
+define Package/udpprobe/description
 	ShaperProbe based bandwidth estimation tool server and client.
 endef
 
@@ -36,10 +36,10 @@ define Build/Compile
 	$(MAKE) CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS) -c -fno-strict-aliasing -DOSX" LDFLAGS="-lm" -C $(PKG_BUILD_DIR)/shaperprobeserver all
 endef
 
-define Package/shaperprobe/install
+define Package/udpprobe/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobe/linux/prober $(1)/usr/bin/shaperprobe
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobeserver/shaperprobeserver $(1)/usr/bin/shaperprobeserver
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobe/linux/udpprober $(1)/usr/bin/udpprober
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/shaperprobeserver/udpprobeserver $(1)/usr/bin/udpprobeserver
 endef
 
-$(eval $(call BuildPackage,shaperprobe))
+$(eval $(call BuildPackage,udpprobe))
