@@ -11,7 +11,7 @@ PKG_NAME:=shaperprobe
 PKG_VERSION:=2013-12-11
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/apietila/shaperprobe.git
+PKG_SOURCE_URL:=git://github.com/shahifaqeer/shaperprobe.git
 PKG_SOURCE:=$(PKG_NAME).tar.gz
 PKG_SOURCE_VERSION:=HEAD
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)
